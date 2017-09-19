@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        p
+        {
+        width:200px;
+        height:20px;
+        border:2px solid black;
+        }
+        .c1
+        {
+            background-color:green;
+            color:white;
+        }
+        .c2
+        {
+            background-color:red;
+            color:white;
+        }
+    </style>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="LoginCtrl">
+        <h1>Login Page</h1>
+        <hr1>
+        UserName: <input type="text"  ng-model="Uname"/> <br /><br />
+        Password: <input type="password" ng-model="Password" /> <br /> <br />
+       <button ng-click="Login()">Login</button>
+            <br/>
+        <p ng-class="{c1:IsSuccess,c2:IsError}">{{message}}</p>
+    </div>
+   
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script type="text/javascript">
+        var myApp = angular.module("myApp", []);
+        myApp.controller("LoginCtrl", function ($scope) {
+            var Uname = "";
+            var Password = "";
+            var message = "";
+            $scope.IsSuccess = false;
+            $scope.IsError = false;
+            $scope.Login = function () {
+                if ($scope.Uname == "Jaya" && $scope.Password == "Jaya") {
+                    $scope.IsSuccess = true;
+                    $scope.IsError = false;
+                    $scope.message = "Welcome to " + $scope.Uname;
+                }
+                else {
+                    $scope.IsError = true;
+                    $scope.IsSuccess = false;
+                    $scope.message = "Login failed"
+                }
+            }
+
+
+        });
+
+    </script>
+</body>
+</html>

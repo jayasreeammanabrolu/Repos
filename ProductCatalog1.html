@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="DemoCtrl1">
+        <label id="Label1">ProductName</label>
+        <input type="text" ng-model="Pname" />
+        <br />
+        <br />
+        <label id="Label2">Quantity</label>
+        <select id ="selectid1" ng-model="Qty">
+            <option value=10>10</option>
+            <option value=20>20</option>
+            <option value=30>30</option>
+            <option value=40>40</option>
+        </select>
+        <br/>
+        <br/>
+        <label id="Label3">Price</label>
+        <select id="selectid2" ng-model="Price">
+            <option value=5>5</option>
+            <option value=15>15</option>
+            <option value=25>25</option>
+            <option value=35>35</option>
+        </select>
+        <br />
+        <br />
+        <button ng-click="GetTotal()">GetTotal</button>
+        <br />
+        <br />
+        <span>
+            {{Pname}} Product cost is {{Total}}
+        </span>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script type="text/javascript">
+        var myApp = angular.module("myApp", []);
+        myApp.service("MultiplyService", function () {
+            this.CalTotal = function (Qty, Price) {
+                var mul = Qty * Price;
+                return mul;
+            };
+        });
+        myApp.controller("DemoCtrl1", function ($scope, MultiplyService) {
+
+                $scope.GetTotal = function () {
+                $scope.Total = MultiplyService.CalTotal($scope.Qty,$scope.Price);
+            };
+
+
+        });
+    </script>
+</body>
+</html>
+

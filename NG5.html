@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body ng-app="myApp">
+     <div ng-controller ="TestController">
+        <h1>Angular Js controllers</h1>        
+            StudentName: {{Sname}}
+            <br />
+            CourseName : {{Scourse}}
+        </div>
+        <hr />
+        <div ng-controller="TestController" ng-init="Sname='Naresh'; Scourse='Java' ">
+            <span> </span><br />
+            StudentName:{{Sname}}
+            <br />
+            CourseName:{{Scourse}}
+        </div>     
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script type="text/javascript">
+        var myApp = angular.module("myApp", []);
+        myApp.controller("TestController", TestController);
+        function TestController($scope) {
+            $scope.Sname = "Scott";
+            $scope.Scourse = "AngularJs";
+        }
+    </script>
+</body>
+</html>

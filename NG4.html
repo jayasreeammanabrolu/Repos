@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>   
+</head>
+<body ng-app="myApp">
+    <h1>Controllers in angular JS</h1>
+    <div ng-controller="TestController">
+        Enter your name <input type="text" ng-model="Sname" />
+        <br />
+        Enter your course<input type="text" ng-model="Scourse"/>
+        <br/>
+        {{Sname}} took the {{Scourse}} course
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script type="text/javascript">
+        var myApp = angular.module("myApp", []);
+        myApp.controller("TestController", TestController);
+        function TestController($scope) {
+            $scope.Sname = "Scott";
+            $scope.Scourse = "AngularJS";           
+        }
+    </script>
+</body>
+</html>

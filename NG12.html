@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body ng-app="myApp">
+    <h1>Filter student data based on given search text</h1>
+    <table ng-controller="StuCtrl" border="1">
+        <tr>
+            <th>StudentName</th>
+            <th>Course</th>
+            <th>Fee</th>
+        </tr>
+        <tr ng-repeat="item in students|filter:Str">
+            <td>{{item.Sname}}</td>
+             <td>{{item.Course}} </td>   
+             <td>{{item.fee}}</td>   
+        </tr>
+    </table>
+    <br />
+    <br/>
+    Enter text to search.
+    <input type="text" ng-model="Str"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script type="text/javascript">
+        var myApp = angular.module("myApp", []);
+        myApp.controller("StuCtrl", function ($scope) {
+            $scope.students=
+                [
+                   { Sname:"Rakesh",Course:"Java",fee:1200},
+                   { Sname: "Radha", Course: "C#", fee: 1500 },
+                   { Sname: "Ramesh", Course: "PHP", fee: 2200 },
+                   { Sname: "Seetha", Course: "Java", fee: 2100 },
+                   { Sname: "Vanaja", Course: "Jquery", fee: 3200 },
+                   { Sname: "Prakash", Course: "AngularJs", fee: 1400 },
+
+                ]
+            
+        });
+    </script>
+</body>
+</html>
